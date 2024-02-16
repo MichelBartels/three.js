@@ -426,7 +426,7 @@ class TrackballControls extends EventDispatcher {
 				scope.domElement.setPointerCapture( event.pointerId );
 
 				scope.domElement.addEventListener( 'pointermove', onPointerMove );
-				scope.domElement.addEventListener( 'pointerup', onPointerUp );
+				scope.domElement.addEventListener( 'lostpointercapture', onLostPointerCapture );
 
 			}
 
@@ -462,7 +462,7 @@ class TrackballControls extends EventDispatcher {
 
 		}
 
-		function onPointerUp( event ) {
+		function onLostPointerCapture( event ) {
 
 			if ( scope.enabled === false ) return;
 
@@ -485,7 +485,7 @@ class TrackballControls extends EventDispatcher {
 				scope.domElement.releasePointerCapture( event.pointerId );
 
 				scope.domElement.removeEventListener( 'pointermove', onPointerMove );
-				scope.domElement.removeEventListener( 'pointerup', onPointerUp );
+				scope.domElement.removeEventListener( 'lostpointercapture', onLostPointerCapture );
 
 			}
 
